@@ -1,0 +1,68 @@
+/* Mobile Index */
+
+@media screen and (max-width: 800px){
+	header{
+		width: 100%;
+		height: auto;
+		overflow-y: auto;
+	}
+	.content1{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.content1 h1{
+		font-size: 60px;
+	}
+	.content1 p{
+		font-size: 25px;
+	}
+	.content2{
+		padding: 10% 2%;
+	}
+	.buy-btn{
+		margin-top: 20px;
+	}
+	.span2{
+		width: 100%;
+		height: auto;
+		overflow-y: auto;
+	}
+	.span3{
+		width: 100%;
+		height: auto;
+	}
+	.span3 img{
+		height: 100%;
+		width: auto;
+	}
+	.products-row{
+		width: 80%;
+		margin: auto;
+	}
+	.products-row li{
+		width: 100%;
+		margin-top: 15%;
+		padding: 4% 2%;
+		display: block;
+	}
+	.span4{
+		height: auto;
+	}
+	.span5{
+		float: none;
+		width: 100%;
+		margin-top: 10%;
+		margin-bottom: 10%;
+	}
+	.subscribe-section form{
+		width: 100%;
+	}
+	.subscribe-input{
+		width: 100%;
+		padding-left: 5%;
+	}
+	.subscribe-btn{
+		width: 100%;
+		margin-top: 15px;
+	}
+}
