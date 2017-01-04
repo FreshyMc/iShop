@@ -1,9 +1,7 @@
-#########################
-# Project Name: iShop   #  
-# Version: 1.0.0        #
-# Author: Tsvetoslav_ G #
-# Copyright(c)2016-2017 #
-#########################
+Project Name: iShop    
+Version: 1.0.0
+Author: Tsvetoslav_ G
+Copyright(c)2016-2017
 
 License Rules
 
