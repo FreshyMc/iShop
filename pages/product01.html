@@ -67,7 +67,7 @@
 			<ul>
 				<li>
 					<div class="dropdown-item">
-						<a href="#">Компютри</a>
+						<a href="../pages/laptops.html">Компютри</a>
 						<div class="dropdown-menu">
 							<ul>
 								<li>
@@ -118,7 +118,7 @@
 				</li>
 				<li>
 					<div class="dropdown-item">
-						<a href="#">Телефони</a>
+						<a href="../pages/phones.html">Телефони</a>
 						<div class="dropdown-menu">
 							<ul>
 								<li>
@@ -191,7 +191,7 @@
 							<li>8-мегапикселова камера</li>
 						</ul>
 						<div class="order-btn">
-							<a href="#">Купи</a>
+							<label for="Name">Купи</label>
 						</div>
 					</div>
 				</div>
@@ -282,7 +282,7 @@
 				<div class="product-order">
 					<h3>Поръчай продукта</h3>
 					<form action="#order.php" method="post" onsubmit="return formSubmit();">
-						<input type="text" name="first-name" placeholder="Име" class="input">
+						<input type="text" name="first-name" placeholder="Име" class="input" id="Name">
 						<input type="text" name="last-name" placeholder="Фамилия" class="input">
 						<input type="email" name="person-mail" placeholder="Електронна поща" class="input">
 						<input type="number" name="person-telephone-number" placeholder="Телефонен номер" min="0" class="input">
@@ -319,7 +319,18 @@
 						</div>
 						<input type="text" name="residence-entrance" placeholder="Вход" class="input">
 						<input type="number" name="residence-floor" placeholder="Eтаж" min="0" max="30" class="input">
-						<input type="number" name="residence-suite" placeholder="Апартамент" min="0" max="10" class="input">
+						<input type="number" name="residence-suite" placeholder="Апартамент" min="0" max="100" class="input">
+						<p>Метод на плащане</p>
+						<div class="input-wrap">
+							<input type="radio" name="payment-method" value="PayPal" id="PayPal" checked>
+							<input type="radio" name="payment-method" value="Medium" id="Cash">
+							<input type="radio" name="payment-method" value="Medium" id="Card">
+							<div class="payment-type-group">
+								<label for="PayPal"><span>PayPal.com</span></label>
+								<label for="Card"><span>Кредитна или дебитна карта</span></label>
+								<label for="Cash"><span>Наложен платеж</span></label>
+							</div>
+						</div>
 						<input type="submit" value="Поръчай сега">
 					</form>
 				</div>

@@ -191,7 +191,7 @@
 	box-sizing: border-box;
 }
 
-.order-btn a{
+.order-btn label{
 	display: block;
 	width: 40%;
 	height: 40px;
@@ -203,7 +203,7 @@
 	border-radius: 40px;
 }
 
-.order-btn a:hover{
+.order-btn label:hover{
 	background: #46349b;
 	color: #fff;
 }
@@ -433,6 +433,20 @@
 }
 
 #House:checked ~ .residence-type-group label:nth-child(2) span::before{
+	background: rgba(255,255,255, .5);
+}
+
+/* Payment Type */
+
+#PayPal:checked ~ .payment-type-group label:nth-child(1) span::before{
+	background: rgba(255,255,255, .5);
+}
+
+#Card:checked ~ .payment-type-group label:nth-child(2) span::before{
+	background: rgba(255,255,255, .5);
+}
+
+#Cash:checked ~ .payment-type-group label:nth-child(3) span::before{
 	background: rgba(255,255,255, .5);
 }
 

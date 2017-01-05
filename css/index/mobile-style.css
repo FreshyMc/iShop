@@ -16,6 +16,10 @@
 	.content1 p{
 		font-size: 25px;
 	}
+	.slide01, .slide02, .slide03{
+		background-size: cover;
+		background-position: left center;
+	}
 	.content2{
 		padding: 10% 2%;
 	}
