@@ -1,0 +1,26 @@
+/* Mobile Index */
+
+@media screen and (max-width: 800px){
+	.page-wrap{
+		text-align: center;
+	}
+	.phone-type, .processor-type, .laptop-type{
+		position: relative;
+		display: inline-block;
+		margin: 1% 0;
+		padding: 5% 15%;
+	}
+	.phone-type::before, .processor-type::before, .laptop-type::before{
+		top: -10px;
+		left: -55px;
+		width: 90px;
+		height: 90px;
+	}
+	.products-row li{
+		width: auto;
+		margin: 5% .5%; 
+	}
+	.product-img-wrap{
+		width: auto;
+	}
+}

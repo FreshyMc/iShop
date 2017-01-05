@@ -19,6 +19,23 @@
 		<meta name="description" content="Това е онлайн магазин за телефони и компютърна техника.">
 	</head>
 	<body>
+		<div id="modal-box">
+			<div class="modal-content-1">
+				<h1>Поръчката е успешна!</h1>
+				<p>Детайли относно поръчката</p>
+				<ul class="order-details">
+					<li>
+						
+					</li>
+				</ul>
+				<button onclick="CloseModal()">Върни се към страницата</button>
+			</div>
+			<div class="modal-content-2">
+				<h1>Грешка в поръчката!</h1>
+				<p>Моля попълнете всички полета във формата за поръчка на избрания от вас продукт</p>
+				<button onclick="CloseModal()">Върни се към страницата</button>
+			</div>
+		</div>
 		<aside class="mobile-menu" id="menu">
 			<button class="close-dialog" onclick="Menu()">X</button>
 			<p>Меню</p>
@@ -32,10 +49,10 @@
 							<p>Вид</p>
 						</li>
 						<li>
-							<a href="#">Лаптопи</a>
+							<a href="../pages/laptops.html">Лаптопи</a>
 						</li>
 						<li>
-							<a href="#">Настолни компютри</a>
+							<a href="../pages/product09.html">Настолни компютри</a>
 						</li>
 					</ul>
 				</li>
@@ -60,7 +77,7 @@
 									<a href="../pages/laptops.html">Лаптопи</a>
 								</li>
 								<li>
-									<a href="#">Настолни компютри</a>
+									<a href="../pages/product09.html">Настолни компютри</a>
 								</li>
 							</ul>
 							<ul>
@@ -68,13 +85,13 @@
 									<p>Процесор</p>
 								</li>
 								<li>
-									<a href="#">Intel® Core™ i7</a>
+									<a href="../pages/processor.html">Intel® Core™ i7</a>
 								</li>
 								<li>
-									<a href="#">Intel® Core™ i5</a>
+									<a href="../pages/processor.html">Intel® Core™ i5</a>
 								</li>
 								<li>
-									<a href="#">Intel® Core™ i3</a>
+									<a href="../pages/processor.html">Intel® Core™ i3</a>
 								</li>
 							</ul>
 							<ul>
@@ -92,8 +109,9 @@
 								<p>
 									Най-продаван
 								</p>
-								<img src="img/pic10.png" alt="">
-								<a href="#">Купи</a>
+								<img src="https://goo.gl/06yPEU" alt="" style="height: 100%;">
+								<p>ASUS F555LN-XX191D</p>
+								<a href="../pages/product06.html">Купи</a>
 							</div>
 						</div>
 					</div>
@@ -136,7 +154,7 @@
 								</h2>
 								<img src="https://goo.gl/PSNpso" alt="" style="height: 100%;">
 								<p>HTC Desire 620</p>
-								<a href="#">Купи</a>
+								<a href="../pages/product01.html">Купи</a>
 							</div>
 						</div>
 					</div>
@@ -266,21 +284,45 @@
 			<div class="span2">
 				<div class="product-order">
 					<h3>Поръчай продукта</h3>
-					<form action="#order.php" method="post">
-						<input type="text" name="first-name" placeholder="Име">
-						<input type="text" name="last-name" placeholder="Фамилия">
-						<input type="email" name="person-mail" placeholder="Електронна поща">
-						<input type="number" name="person-telephone-number" placeholder="Телефонен номер">
-						<input type="number" name="product-quantity" placeholder="Количество от продукта">
+					<form action="#order.php" method="post" onsubmit="return formSubmit();">
+						<input type="text" name="first-name" placeholder="Име" class="input">
+						<input type="text" name="last-name" placeholder="Фамилия" class="input">
+						<input type="email" name="person-mail" placeholder="Електронна поща" class="input">
+						<input type="number" name="person-telephone-number" placeholder="Телефонен номер" min="0" class="input">
+						<input type="number" name="product-quantity" placeholder="Количество от продукта" min="0" max="15" class="input">
 						<p>Тип доставка</p>
-						<input type="radio" name="delivery-type" value="Fast" id="Fast" checked>
-						<input type="radio" name="delivery-type" value="Medium" id="Medium">
-						<input type="radio" name="delivery-type" value="Slow" id="Slow">
-						<div class="delivery-type-group">
-							<label for="Fast"><span>Бърза(50лв.)</span></label>
-							<label for="Medium"><span>Обикновенна(30лв.)</span></label>
-							<label for="Slow"><span>Бавна(20лв.)</span></label>
+						<div class="input-wrap">
+							<input type="radio" name="delivery-type" value="Fast" id="Fast" checked>
+							<input type="radio" name="delivery-type" value="Medium" id="Medium">
+							<input type="radio" name="delivery-type" value="Slow" id="Slow">
+							<div class="delivery-type-group">
+								<label for="Fast"><span>Бърза(50лв.)</span></label>
+								<label for="Medium"><span>Обикновенна(30лв.)</span></label>
+								<label for="Slow"><span>Бавна(20лв.)</span></label>
+							</div>
 						</div>
+						<select name="location" class="input">
+							<option value="default">Място на доставяне гр./с.</option>
+							<option value="Sofia">София</option>
+							<option value="Vratsa">Враца</option>
+							<option value="Plovdiv">Пловдив</option>
+							<option value="Ruse">Русе</option>
+							<option value="Varna">Варна</option>
+							<option value="Burgas">Бургас</option>
+						</select>
+						<input type="text" name="location-street" placeholder="Адрес на получателя" class="input">
+						<p>Живеете в Блок/Къща</p>
+						<div class="input-wrap">
+							<input type="radio" name="residence-type" value="Flat" id="Flat" onclick="ResidenceType()" checked>
+							<input type="radio" name="residence-type" value="House" id="House" onclick="ResidenceType()">
+							<div class="residence-type-group">
+								<label for="Flat"><span>Блок</span></label>
+								<label for="House"><span>Къща</span></label>
+							</div>
+						</div>
+						<input type="text" name="residence-entrance" placeholder="Вход" class="input">
+						<input type="number" name="residence-floor" placeholder="Eтаж" min="0" max="30" class="input">
+						<input type="number" name="residence-suite" placeholder="Апартамент" min="0" max="10" class="input">
 						<input type="submit" value="Поръчай сега">
 					</form>
 				</div>
@@ -313,18 +355,7 @@
 				</div>
 			</div>
 		</footer>
-		<script>
-			var state = "closed";
-			var menu = document.getElementById("menu");
-			function Menu(){
-				if(state == "closed"){
-					menu.style.left = "0";
-					state = "opened";
-				}else{
-					menu.style.left = "-200px";
-					state = "closed";
-				}
-			}
-		</script>
+		<script src="../js/common.js"></script>
+		<script src="../js/form.js"></script>
 	</body>
 </html>

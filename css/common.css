@@ -91,11 +91,13 @@ body{
 /*------------------*/
 
 .page-top{
+	position: relative;
 	width: 100%;
 	height: auto;
 	padding: 1% 2%;
 	background: #363441;
 	box-sizing: border-box;
+	z-index: 1;
 }
 
 .page-top h1 span:first-child{
