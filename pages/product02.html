@@ -19,6 +19,9 @@
 		<meta name="description" content="Това е онлайн магазин за телефони и компютърна техника.">
 	</head>
 	<body>
+		<div class="document-alerts">
+			
+		</div>
 		<aside class="mobile-menu" id="menu">
 			<button class="close-dialog" onclick="Menu()">X</button>
 			<p>Меню</p>
@@ -57,7 +60,7 @@
 									<p>Вид</p>
 								</li>
 								<li>
-									<a href="#">Лаптопи</a>
+									<a href="../pages/laptops.html">Лаптопи</a>
 								</li>
 								<li>
 									<a href="#">Настолни компютри</a>
@@ -107,10 +110,10 @@
 									<p>Операционна система</p>
 								</li>
 								<li>
-									<a href="#">Android</a>
+									<a href="../pages/phones.html">Android</a>
 								</li>
 								<li>
-									<a href="#">iOs</a>
+									<a href="../pages/phones.html">iOs</a>
 								</li>
 							</ul>
 							<ul>
@@ -121,13 +124,13 @@
 									<a href="../pages/product01.html">HTC</a>
 								</li>
 								<li>
-									<a href="../pages/product03.html">Huawei</a>
-								</li>
-								<li>
-									<a href="../pages/product04.html">Microsoft</a>
-								</li>
-								<li>
 									<a href="../pages/product02.html">Apple</a>
+								</li>
+								<li>
+									<a href="../pages/product03.html">Microsoft</a>
+								</li>
+								<li>
+									<a href="../pages/product04.html">Huawei</a>
 								</li>
 							</ul>
 							<div class="best-selled">
@@ -268,21 +271,45 @@
 			<div class="span2">
 				<div class="product-order">
 					<h3>Поръчай продукта</h3>
-					<form action="#order.php" method="post">
+					<form action="#order.php" method="post" onsubmit="formSubmit()">
 						<input type="text" name="first-name" placeholder="Име">
 						<input type="text" name="last-name" placeholder="Фамилия">
 						<input type="email" name="person-mail" placeholder="Електронна поща">
-						<input type="number" name="person-telephone-number" placeholder="Телефонен номер">
-						<input type="number" name="product-quantity" placeholder="Количество от продукта">
+						<input type="number" name="person-telephone-number" placeholder="Телефонен номер" min="0">
+						<input type="number" name="product-quantity" placeholder="Количество от продукта" min="0" max="15">
 						<p>Тип доставка</p>
-						<input type="radio" name="delivery-type" value="Fast" id="Fast" checked>
-						<input type="radio" name="delivery-type" value="Medium" id="Medium">
-						<input type="radio" name="delivery-type" value="Slow" id="Slow">
-						<div class="delivery-type-group">
-							<label for="Fast"><span>Бърза(50лв.)</span></label>
-							<label for="Medium"><span>Обикновенна(30лв.)</span></label>
-							<label for="Slow"><span>Бавна(20лв.)</span></label>
+						<div class="input-wrap">
+							<input type="radio" name="delivery-type" value="Fast" id="Fast" checked>
+							<input type="radio" name="delivery-type" value="Medium" id="Medium">
+							<input type="radio" name="delivery-type" value="Slow" id="Slow">
+							<div class="delivery-type-group">
+								<label for="Fast"><span>Бърза(50лв.)</span></label>
+								<label for="Medium"><span>Обикновенна(30лв.)</span></label>
+								<label for="Slow"><span>Бавна(20лв.)</span></label>
+							</div>
 						</div>
+						<select name="location">
+							<option value="default">Място на доставяне гр./с.</option>
+							<option value="Sofia">София</option>
+							<option value="Vratsa">Враца</option>
+							<option value="Plovdiv">Пловдив</option>
+							<option value="Ruse">Русе</option>
+							<option value="Varna">Варна</option>
+							<option value="Burgas">Бургас</option>
+						</select>
+						<input type="text" name="location-street" placeholder="Адрес на получателя">
+						<p>Живеете в Блок/Къща</p>
+						<div class="input-wrap">
+							<input type="radio" name="residence-type" value="Flat" id="Flat" onclick="ResidenceType()" checked>
+							<input type="radio" name="residence-type" value="House" id="House" onclick="ResidenceType()">
+							<div class="residence-type-group">
+								<label for="Flat"><span>Блок</span></label>
+								<label for="House"><span>Къща</span></label>
+							</div>
+						</div>
+						<input type="text" name="residence-entrance" placeholder="Вход">
+						<input type="number" name="residence-floor" placeholder="Eтаж" min="0" max="30">
+						<input type="number" name="residence-suite" placeholder="Апартамент" min="0" max="10">
 						<input type="submit" value="Поръчай сега">
 					</form>
 				</div>
@@ -325,6 +352,31 @@
 				}else{
 					menu.style.left = "-200px";
 					state = "closed";
+				}
+			}
+			
+			function ResidenceType(){
+				var input = document.getElementById("Flat");
+				if(input.checked == false){
+					document.getElementsByName("residence-entrance")[0].disabled = true;
+					document.getElementsByName("residence-floor")[0].disabled = true;
+					document.getElementsByName("residence-suite")[0].disabled = true;
+				}else{
+					document.getElementsByName("residence-entrance")[0].disabled = false;
+					document.getElementsByName("residence-floor")[0].disabled = false;
+					document.getElementsByName("residence-suite")[0].disabled = false;
+				}
+			}
+			
+			function formSubmit(){
+				var input_group = document.querySelector(".product-order input[type='text'], .product-order input[type='number'], .product-order input[type='email']").value;
+				if(input_group == undefined || input_group == 0){
+					alert("Please fill all the fields");
+					document.forms[0].onsubmit.preventDefault();
+				}else{
+					alert("Everything is correct");
+					document.forms[0].onsubmit.preventDefault();
+					document.forms[0].reset();
 				}
 			}
 		</script>

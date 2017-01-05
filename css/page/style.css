@@ -351,6 +351,28 @@
 	border-radius: 40px;
 	box-sizing: border-box;
 	border: 2px solid #fff;
+	overflow: hidden;
+}
+
+.product-order select{
+	display: block;
+	width: 100%;
+	height: 40px;
+	margin-top: 15px;
+	padding-left: 15px;
+	color: #fff;
+	font-size: 16px;
+	background: transparent;
+	border-radius: 40px;
+	box-sizing: border-box;
+	border: 2px solid #fff;
+	-webkit-appearance: none;
+	appearance: none;
+	overflow: hidden;
+}
+
+.product-order select option{
+	color: #666;
 }
 
 .product-order input[type="radio"]{
@@ -390,6 +412,8 @@
 	box-sizing: border-box;
 }
 
+/* Delivery Type Input Style */
+
 #Fast:checked ~ .delivery-type-group label:nth-child(1) span::before{
 	background: rgba(255,255,255, .5);
 }
@@ -402,14 +426,34 @@
 	background: rgba(255,255,255, .5);
 }
 
+/* Residence Type Input Style */
+
+#Flat:checked ~ .residence-type-group label:nth-child(1) span::before{
+	background: rgba(255,255,255, .5);
+}
+
+#House:checked ~ .residence-type-group label:nth-child(2) span::before{
+	background: rgba(255,255,255, .5);
+}
+
 .product-order p{
 	margin-top: 15px;
+}
+
+.input-wrap{
+	position: relative;
+	width: 100%;
+	height: auto;
 }
 
 /* Focus Effect */
 
 .product-order input[type="text"]:focus, .product-order input[type="number"]:focus, .product-order input[type="email"]:focus{
 	background: rgba(255,255,255, .2);
+}
+
+.product-order input[type="text"]:disabled, .product-order input[type="number"]:disabled{
+	display: none;
 }
 
 .product-order input[type="submit"]{

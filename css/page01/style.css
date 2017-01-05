@@ -12,7 +12,7 @@
 
 /* Processor Type */
 
-.processor-type{
+.phone-type, .processor-type, .laptop-type{
 	position: relative;
 	display: inline-block;
 	margin: 1% 0;
@@ -20,6 +20,20 @@
 	background: #139fe8 linear-gradient(to top,#139fe8,#33e6c7);
 	color: #fff;
 	transform: skewX(160deg);
+}
+
+.phone-type::before{
+	content: '';
+	position: absolute;
+	top: -15px;
+	left: -40px;
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+	background: #fff url(../../img/phone.svg) no-repeat center center;
+	background-size: 80% 80%;
+	box-shadow: 0 0 10px rgba(0,0,0, .3);
+	transform: skewX(-160deg);
 }
 
 .processor-type::before{
@@ -36,7 +50,21 @@
 	transform: skewX(-160deg);
 }
 
-.processor-type h2{
+.laptop-type::before{
+	content: '';
+	position: absolute;
+	top: -15px;
+	left: -40px;
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+	background: #fff url(../../img/laptop.svg) no-repeat center center;
+	background-size: 80% 80%;
+	box-shadow: 0 0 10px rgba(0,0,0, .3);
+	transform: skewX(-160deg);
+}
+
+.laptop-type h2, .processor-type h2, .phone-type h2{
 	transform: skewX(-160deg);
 }
 
