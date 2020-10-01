@@ -1,6 +1,6 @@
 Project Name: iShop    
 Version: 1.0.0
-Author: Tsvetoslav_ G
+Author: FreshyMc
 Copyright(c)2016-2017
 
 License Rules
